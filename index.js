@@ -189,7 +189,25 @@ border-radius:15px;
 width:350px;
 box-shadow:0 0 15px cyan;
 }
+.search-box{
+margin-top:20px;
+margin-bottom:20px;
+}
 
+.search-box input{
+padding:10px;
+width:250px;
+border:none;
+border-radius:5px;
+}
+
+.search-box button{
+padding:10px;
+background:cyan;
+border:none;
+border-radius:5px;
+cursor:pointer;
+}
 </style>
 
 </head>
@@ -212,6 +230,10 @@ box-shadow:0 0 15px cyan;
 
 <a href="#">⚙️ Settings</a>
 
+<a href="#nifty">📈 NSE Stocks</a>
+
+<a href="#bse">🏦 BSE Stocks</a>
+
 </div>
 
 <div class="main">
@@ -233,6 +255,17 @@ box-shadow:0 0 15px cyan;
 <h1>🚀 PRINCE LIVE MARKET</h1>
 
 <div id="tradingview_chart"></div>
+<div class="search-box">
+
+<input type="text"
+id="stockInput"
+placeholder="Search NSE Stock">
+
+<button onclick="loadChart()">
+Open Chart
+</button>
+
+</div>
 
 <div class="cards">
 
