@@ -339,6 +339,47 @@ padding:0;
 margin:10px 0;
 font-size:18px;
 }
+.topbar{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+background:#111827;
+
+padding:20px;
+
+border-radius:15px;
+
+margin-bottom:20px;
+
+box-shadow:0 0 15px rgba(0,255,255,0.3);
+
+}
+
+.topbar h1{
+
+color:cyan;
+
+font-size:32px;
+
+}
+
+.market-status{
+
+background:#16a34a;
+
+padding:10px 20px;
+
+border-radius:30px;
+
+font-weight:bold;
+
+font-size:18px;
+
+}
 </style>
 
 </head>
@@ -368,6 +409,17 @@ font-size:18px;
 </div>
 
 <div class="main">
+<div class="topbar">
+
+<h1>🤖 PRINCE AI TRADING TERMINAL</h1>
+
+<div class="market-status">
+
+🟢 Market Open
+
+</div>
+
+</div>
 
 <div class="login-box" id="loginBox">
 
