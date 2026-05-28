@@ -1,0 +1,483 @@
+const express = require("express");
+const axios = require("axios");
+
+const app = express();
+
+app.get("/", async (req, res) => {
+
+try {
+
+const btc = await axios.get(
+"https://api.binance.com/api/v3/ticker/price?symbol=BTCUSDT"
+);
+
+const eth = await axios.get(
+"https://api.binance.com/api/v3/ticker/price?symbol=ETHUSDT"
+);
+
+const bnb = await axios.get(
+"https://api.binance.com/api/v3/ticker/price?symbol=BNBUSDT"
+);
+
+res.send(`
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<title>PRINCE LIVE MARKET</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Arial;
+background:#0d1117;
+color:white;
+}
+
+.sidebar{
+position:fixed;
+left:0;
+top:0;
+width:220px;
+height:100%;
+background:#111827;
+padding:20px;
+box-shadow:0 0 15px cyan;
+}
+
+.sidebar h2{
+color:cyan;
+margin-bottom:30px;
+}
+
+.sidebar a{
+display:block;
+padding:12px;
+margin:15px 0;
+background:#1e293b;
+color:white;
+text-decoration:none;
+border-radius:10px;
+transition:0.3s;
+}
+
+.sidebar a:hover{
+background:cyan;
+color:black;
+}
+
+.main{
+margin-left:260px;
+padding:20px;
+}
+
+.login-box{
+background:#1e293b;
+padding:20px;
+border-radius:15px;
+width:250px;
+box-shadow:0 0 15px cyan;
+}
+
+.login-box input{
+width:100%;
+padding:10px;
+margin-top:10px;
+border:none;
+border-radius:5px;
+}
+
+.login-box button{
+width:100%;
+padding:10px;
+margin-top:10px;
+background:#59ff7e;
+border:none;
+border-radius:5px;
+cursor:pointer;
+}
+
+h1{
+color:cyan;
+}
+
+.cards{
+display:flex;
+gap:20px;
+flex-wrap:wrap;
+margin-top:20px;
+}
+
+.card{
+background:#1a1f3a;
+padding:20px;
+width:220px;
+border-radius:15px;
+box-shadow:0 0 15px cyan;
+}
+
+.price{
+font-size:25px;
+color:#59ff7e;
+font-weight:bold;
+}
+
+.time{
+margin-top:20px;
+font-size:20px;
+color:orange;
+}
+
+.trade-panel{
+margin-top:30px;
+background:#1e293b;
+padding:20px;
+border-radius:15px;
+width:500px;
+box-shadow:0 0 15px cyan;
+}
+
+.trade-panel input{
+padding:10px;
+margin:10px;
+border:none;
+border-radius:5px;
+}
+
+.trade-panel button{
+padding:10px;
+border:none;
+border-radius:5px;
+cursor:pointer;
+}
+
+.buy{
+background:green;
+color:white;
+}
+
+.sell{
+background:red;
+color:white;
+}
+
+.signal-box{
+margin-top:30px;
+background:#1e293b;
+padding:20px;
+border-radius:15px;
+width:350px;
+box-shadow:0 0 15px cyan;
+}
+
+#signal{
+font-size:28px;
+font-weight:bold;
+margin:20px 0;
+color:yellow;
+}
+
+.portfolio{
+margin-top:30px;
+background:#1e293b;
+padding:20px;
+border-radius:15px;
+width:350px;
+box-shadow:0 0 15px cyan;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="sidebar">
+
+<h2>⚡ PRINCE</h2>
+
+<a href="#">🏠 Dashboard</a>
+
+<a href="#">📈 Live Market</a>
+
+<a href="#">💹 Signals</a>
+
+<a href="#">💼 Portfolio</a>
+
+<a href="#">🤖 AI Signals</a>
+
+<a href="#">⚙️ Settings</a>
+
+</div>
+
+<div class="main">
+
+<div class="login-box" id="loginBox">
+
+<h2>Login</h2>
+
+<input type="text" id="user" placeholder="Username">
+
+<input type="password" id="pass" placeholder="Password">
+
+<button onclick="login()">Login</button>
+
+</div>
+
+<div id="dashboard" style="display:none;">
+
+<h1>🚀 PRINCE LIVE MARKET</h1>
+
+<div id="tradingview_chart"></div>
+
+<div class="cards">
+
+<div class="card">
+<h2>Bitcoin</h2>
+<div class="price">$ ${btc.data.price}</div>
+</div>
+
+<div class="card">
+<h2>Ethereum</h2>
+<div class="price">$ ${eth.data.price}</div>
+</div>
+
+<div class="card">
+<h2>BNB Coin</h2>
+<div class="price">$ ${bnb.data.price}</div>
+</div>
+
+<div class="card">
+<h2>NIFTY</h2>
+<div class="price">25000</div>
+</div>
+
+<div class="card">
+<h2>BANKNIFTY</h2>
+<div class="price">56000</div>
+</div>
+
+</div>
+
+<div class="time">
+
+Last Updated:
+<span id="clock"></span>
+
+</div>
+
+<div class="trade-panel">
+
+<h2>Trading Panel</h2>
+
+<input type="number" id="buyPrice" placeholder="Buy Price">
+
+<input type="number" id="sellPrice" placeholder="Sell Price">
+
+<button onclick="calculateProfit()">
+Calculate Profit
+</button>
+
+<br><br>
+
+<button class="buy">BUY</button>
+
+<button class="sell">SELL</button>
+
+<h3 id="result"></h3>
+
+</div>
+
+<div class="signal-box">
+
+<h2>📈 AI Trading Signal</h2>
+
+<div id="signal">WAITING...</div>
+
+<button onclick="buySignal()" class="buy">
+BUY SIGNAL
+</button>
+
+<button onclick="sellSignal()" class="sell">
+SELL SIGNAL
+</button>
+
+</div>
+
+<div class="portfolio">
+
+<h2>💼 Portfolio</h2>
+
+<p>Total Balance: ₹ 5,00,000</p>
+
+<p>Today Profit: ₹ 12,500</p>
+
+<p>Total Trades: 15</p>
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+function login(){
+
+const username =
+document.getElementById("user").value;
+
+const password =
+document.getElementById("pass").value;
+
+if(username === "admin" && password === "1234"){
+
+alert("Login Success ✅");
+
+document.getElementById("loginBox").style.display =
+"none";
+
+document.getElementById("dashboard").style.display =
+"block";
+
+}
+else{
+
+alert("Wrong Username or Password ❌");
+
+}
+
+}
+
+function calculateProfit(){
+
+const buy =
+parseFloat(document.getElementById("buyPrice").value);
+
+const sell =
+parseFloat(document.getElementById("sellPrice").value);
+
+const profit = sell - buy;
+
+document.getElementById("result").innerHTML =
+"Profit/Loss: " + profit;
+
+}
+
+function autoSignal(){
+
+const random = Math.random();
+
+if(random > 0.5){
+
+document.getElementById("signal").innerHTML =
+"🟢 AI BUY SIGNAL";
+
+}
+else{
+
+document.getElementById("signal").innerHTML =
+"🔴 AI SELL SIGNAL";
+
+}
+
+}
+
+function buySignal(){
+
+document.getElementById("signal").innerHTML =
+"🟢 BUY NOW";
+
+}s
+function buySignal(){
+
+document.getElementById("signal").innerHTML =
+"🟢 BUY NOW";
+
+}
+
+function sellSignal(){
+
+document.getElementById("signal").innerHTML =
+"🔴 SELL NOW";
+
+}
+
+function updateClock(){
+
+const now = new Date();
+
+document.getElementById("clock").innerHTML =
+now.toLocaleTimeString();
+
+}
+
+setInterval(updateClock,1000);
+
+updateClock();
+
+setInterval(autoSignal,5000);
+
+autoSignal();
+</script>
+
+<script src="https://s3.tradingview.com/tv.js"></script>
+
+<script>
+
+new TradingView.widget({
+
+"container_id":"tradingview_chart",
+
+"width":"100%",
+
+"height":500,
+
+"symbol":"BINANCE:BTCUSDT",
+
+"interval":"15",
+
+"timezone":"Asia/Kolkata",
+
+"theme":"dark",
+
+"style":"1",
+
+"locale":"en",
+
+"toolbar_bg":"#0d1117",
+
+"enable_publishing":false,
+
+"hide_side_toolbar":false,
+
+"allow_symbol_change":true
+
+});
+
+</script>
+
+</body>
+
+</html>
+
+`);
+
+}
+catch(error){
+
+res.send("Error Fetching Data ❌");
+
+}
+
+});
+
+app.listen(3000, () => {
+
+console.log("🚀 Server running on port 3000");
+
+});
