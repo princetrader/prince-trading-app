@@ -208,6 +208,40 @@ border:none;
 border-radius:5px;
 cursor:pointer;
 }
+.market-movers{
+display:flex;
+gap:20px;
+margin-top:20px;
+}
+
+.gainers,
+.losers{
+background:#111827;
+padding:20px;
+border-radius:10px;
+width:300px;
+box-shadow:0 0 10px cyan;
+}
+
+.gainers h2{
+color:lime;
+}
+
+.losers h2{
+color:red;
+}
+
+.gainers ul,
+.losers ul{
+list-style:none;
+padding:0;
+}
+
+.gainers li,
+.losers li{
+margin:10px 0;
+font-size:18px;
+}
 </style>
 
 </head>
@@ -268,6 +302,31 @@ Open Chart
 </div>
 
 <div class="cards">
+<div class="market-movers">
+
+<div class="gainers">
+<h2>🚀 Top Gainers</h2>
+
+<ul id="gainersList">
+<li>RELIANCE +3.5%</li>
+<li>TCS +2.8%</li>
+<li>SBIN +2.1%</li>
+</ul>
+
+</div>
+
+<div class="losers">
+<h2>🔻 Top Losers</h2>
+
+<ul id="losersList">
+<li>INFY -1.5%</li>
+<li>HDFC -2.2%</li>
+<li>ITC -1.1%</li>
+</ul>
+
+</div>
+
+</div>
 
 <div class="card">
 <h2>Bitcoin</h2>
