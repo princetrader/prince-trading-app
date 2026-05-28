@@ -543,16 +543,8 @@ Open Chart
 
 </div>
 
-<div class="card">
-
-<h2>RELIANCE</h2>
-
-<p class="price"
-id="reliancePrice">
-
-Loading...
-
-</p>
+<div id="liveStocks"
+class="cards">
 
 </div>
 
@@ -840,6 +832,7 @@ new TradingView.widget({
 });
 
 </script>
+
 <script>
 
 async function loadMarket(){
@@ -852,16 +845,53 @@ await fetch('/market');
 const data =
 await response.json();
 
+let html = "";
+
+data.forEach(stock => {
+
+html += `
+
+<div class="card">
+
+<h2>
+${stock.name}
+</h2>
+
+<p class="price">
+
+₹ ${stock.price}
+
+</p>
+
+<p>
+
+${stock.change.toFixed(2)}%
+
+</p>
+
+</div>
+
+`;
+
+});
+
 document.getElementById(
-"reliancePrice"
-).innerText =
-"₹ " + data.price;
+"liveStocks"
+).innerHTML = html;
 
 }catch(err){
 
 console.log(err);
 
 }
+
+}
+
+loadMarket();
+
+setInterval(loadMarket,5000);
+
+</script>
 
 }
 
