@@ -557,7 +557,7 @@ class="cards">
 
 <p id="aiSignal">
 
-RELIANCE → BUY ✅
+Loading AI Signal...
 
 </p>
 
@@ -645,6 +645,77 @@ SELL SIGNAL
 </div>
 
 <script>
+async function generateAISignal(){
+
+const res =
+await fetch('/market');
+
+const data =
+await res.json();
+
+let bestStock = null;
+
+data.forEach(stock=>{
+
+if(
+!bestStock ||
+stock.change >
+bestStock.change
+){
+
+bestStock = stock;
+
+}
+
+});
+
+let signalText = '';
+
+if(bestStock.change > 3){
+
+signalText = `
+🟢 STRONG BUY:
+${bestStock.name}
+
+Expected Profit:
++5% Possible
+
+Momentum:
+VERY HIGH 🚀
+`;
+
+}else if(bestStock.change > 1){
+
+signalText = `
+🟢 BUY:
+${bestStock.name}
+
+Expected Profit:
++2% Possible
+`;
+
+}else{
+
+signalText = `
+🟡 MARKET SIDEWAYS
+
+Wait For Better Entry
+`;
+
+}
+
+document.getElementById(
+'aiSignal'
+).innerHTML = signalText;
+
+}
+
+generateAISignal();
+
+setInterval(
+generateAISignal,
+15000
+);
 async function loadMarket(){
 
 const res =
