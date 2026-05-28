@@ -645,6 +645,54 @@ SELL SIGNAL
 </div>
 
 <script>
+async function loadMarket(){
+
+const res =
+await fetch('/market');
+
+const data =
+await res.json();
+
+let html = '';
+
+data.forEach(stock=>{
+
+html += `
+
+<div class="card">
+
+<h2>${stock.name}</h2>
+
+<div class="price">
+
+₹ ${stock.price}
+
+</div>
+
+<p style="
+font-size:20px;
+color:${stock.change > 0 ? 'lime' : 'red'}
+">
+
+${stock.change.toFixed(2)}%
+
+</p>
+
+</div>
+
+`;
+
+});
+
+document.getElementById(
+'marketCards'
+).innerHTML = html;
+
+}
+
+loadMarket();
+
+setInterval(loadMarket,10000);
 
 function login(){
 
