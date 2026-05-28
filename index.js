@@ -452,7 +452,7 @@ new TradingView.widget({
 
 "height":500,
 
-"symbol":"NSE:" + stock,
+"symbol": stock,
 
 "interval":"15",
 
