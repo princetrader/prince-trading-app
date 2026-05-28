@@ -21,9 +21,7 @@ const bnb = await axios.get(
 );
 
 res.send(`
-
 <!DOCTYPE html>
-
 <html>
 
 <head>
@@ -31,13 +29,20 @@ res.send(`
 <title>PRINCE LIVE MARKET</title>
 
 <style>
-
 body{
 margin:0;
 font-family:Arial;
 background:#0d1117;
 color:white;
 }
+</style>
+
+</head>
+<body>
+<h1>LIVE MARKET</h1>
+</body>
+</html>
+);
 
 .sidebar{
 position:fixed;
