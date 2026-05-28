@@ -1,4 +1,5 @@
 const express = require("express");
+const yahooFinance = require("yahoo-finance2").default;
 const axios = require("axios");
 
 const app = express();
@@ -543,11 +544,20 @@ Open Chart
 </div>
 
 <div class="card">
-<h2>Bitcoin</h2>
-<div class="price">$ ${btc.data.price}</div>
+
+<h2>RELIANCE</h2>
+
+<p class="price"
+id="reliancePrice">
+
+Loading...
+
+</p>
+
 </div>
 
 <div class="card">
+
 <h2>Ethereum</h2>
 <div class="price">$ ${eth.data.price}</div>
 </div>
