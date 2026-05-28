@@ -840,6 +840,65 @@ new TradingView.widget({
 });
 
 </script>
+<script>
+
+async function loadMarket(){
+
+try{
+
+const response =
+await fetch('/market');
+
+const data =
+await response.json();
+
+document.getElementById(
+"reliancePrice"
+).innerText =
+"₹ " + data.price;
+
+}catch(err){
+
+console.log(err);
+
+}
+
+}
+
+loadMarket();
+
+setInterval(loadMarket,5000);
+
+</script><script>
+
+async function loadMarket(){
+
+try{
+
+const response =
+await fetch('/market');
+
+const data =
+await response.json();
+
+document.getElementById(
+"reliancePrice"
+).innerText =
+"₹ " + data.price;
+
+}catch(err){
+
+console.log(err);
+
+}
+
+}
+
+loadMarket();
+
+setInterval(loadMarket,5000);
+
+</script>
 
 </body>
 
@@ -851,6 +910,34 @@ new TradingView.widget({
 catch(error){
 
 res.send("Error Fetching Data ❌");
+
+}
+
+});
+app.get("/market",
+async(req,res)=>{
+
+try{
+
+const result =
+await yahooFinance.quote(
+"RELIANCE.NS"
+);
+
+res.json({
+
+price:
+result.regularMarketPrice
+
+});
+
+}catch(err){
+
+res.json({
+
+price:"Error"
+
+});
 
 }
 
