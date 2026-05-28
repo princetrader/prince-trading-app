@@ -454,7 +454,7 @@ new TradingView.widget({
 
 "symbol": stock,
 
-"interval":"15",
+"interval":"D",
 
 "timezone":"Asia/Kolkata",
 
