@@ -110,11 +110,13 @@ color:cyan;
 display:grid;
 
 grid-template-columns:
-repeat(auto-fit,minmax(220px,1fr));
+repeat(auto-fit,minmax(300px,1fr));
 
-gap:20px;
+gap:25px;
 
-margin-top:20px;
+margin-top:25px;
+
+align-items:stretch;
 
 }
 
@@ -122,16 +124,59 @@ margin-top:20px;
 
 background:#111827;
 
-padding:20px;
+padding:25px;
 
-border-radius:15px;
+border-radius:18px;
 
-box-shadow:0 0 15px rgba(0,255,255,0.5);
+min-height:180px;
+
+box-shadow:
+0 0 15px rgba(0,255,255,0.3);
 
 transition:0.3s;
 
+display:flex;
+
+flex-direction:column;
+
+justify-content:center;
+
 }
 
+.card:hover{
+
+transform:translateY(-5px);
+
+box-shadow:0 0 25px cyan;
+
+}
+
+.market-movers{
+
+display:grid;
+
+grid-template-columns:1fr 1fr;
+
+gap:25px;
+
+margin-top:25px;
+
+}
+
+.gainers,
+.losers{
+
+min-height:180px;
+
+background:#111827;
+
+padding:20px;
+
+border-radius:18px;
+
+box-shadow:0 0 15px rgba(0,255,255,0.3);
+
+}
 .card:hover{
 
 transform:translateY(-5px);
