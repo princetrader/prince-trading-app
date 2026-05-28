@@ -8,15 +8,15 @@ app.get("/", async (req, res) => {
 try {
 
 const btc = await axios.get(
-"https://api.binance.com/api/v3/ticker/price?symbol=BTCUSDT"
+"https://api.binance.us/api/v3/ticker/price?symbol=BTCUSDT"
 );
 
 const eth = await axios.get(
-"https://api.binance.com/api/v3/ticker/price?symbol=ETHUSDT"
+"https://api.binance.us/api/v3/ticker/price?symbol=ETHUSDT"
 );
 
 const bnb = await axios.get(
-"https://api.binance.com/api/v3/ticker/price?symbol=BNBUSDT"
+"https://api.binance.us/api/v3/ticker/price?symbol=BNBUSDT"
 );
 
 res.send(`
