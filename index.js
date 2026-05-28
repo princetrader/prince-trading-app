@@ -548,25 +548,8 @@ class="cards">
 
 </div>
 
-<div class="card">
+<div class="cards" id="marketCards">
 
-<h2>Ethereum</h2>
-<div class="price">$ ${eth.data.price}</div>
-</div>
-
-<div class="card">
-<h2>BNB Coin</h2>
-<div class="price">$ ${bnb.data.price}</div>
-</div>
-
-<div class="card">
-<h2>NIFTY</h2>
-<div class="price">25000</div>
-</div>
-
-<div class="card">
-<h2>BANKNIFTY</h2>
-<div class="price">56000</div>
 </div>
 <div class="card ai-box">
 
