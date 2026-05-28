@@ -914,20 +914,44 @@ res.send("Error Fetching Data ❌");
 }
 
 });
+
 app.get("/market",
 async(req,res)=>{
 
 try{
 
-const result =
-await yahooFinance.quote(
-"RELIANCE.NS"
-);
+const stocks = [
 
-res.json({
+"RELIANCE.NS",
+"TCS.NS",
+"INFY.NS",
+"SBIN.NS",
+"SUZLON.NS"
+
+];
+
+let marketData = [];
+
+for(const stock of stocks){
+
+const result =
+await yahooFinance.quote(stock);
+
+marketData.push({
+
+name: stock,
 
 price:
-result.regularMarketPrice
+result.regularMarketPrice,
+
+change:
+result.regularMarketChangePercent
+
+});
+
+}
+
+res.json(marketData);
 
 });
 
