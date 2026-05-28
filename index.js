@@ -439,7 +439,42 @@ document.getElementById("signal").innerHTML =
 "🔴 SELL NOW";
 
 }
+function loadChart(){
 
+let stock =
+document.getElementById("stockInput").value;
+
+new TradingView.widget({
+
+"container_id":"tradingview_chart",
+
+"width":"100%",
+
+"height":500,
+
+"symbol":"NSE:" + stock,
+
+"interval":"15",
+
+"timezone":"Asia/Kolkata",
+
+"theme":"dark",
+
+"style":"1",
+
+"locale":"en",
+
+"toolbar_bg":"#111827",
+
+"enable_publishing":false,
+
+"hide_side_toolbar":false,
+
+"allow_symbol_change":true
+
+});
+
+}
 function updateClock(){
 
 const now = new Date();
