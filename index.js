@@ -42,7 +42,7 @@ color:white;
 <h1>LIVE MARKET</h1>
 </body>
 </html>
-);
+');
 
 .sidebar{
 position:fixed;
