@@ -945,8 +945,7 @@ res.send("Error Fetching Data ❌");
 
 });
 
-app.get("/market",
-async(req,res)=>{
+app.get('/market', async(req,res)=>{
 
 try{
 
@@ -956,10 +955,52 @@ const stocks = [
 "TCS.NS",
 "INFY.NS",
 "SBIN.NS",
-"SUZLON.NS"
+"ITC.NS",
+"HDFCBANK.NS",
+"ICICIBANK.NS",
+"LT.NS",
+"SUZLON.NS",
+"RVNL.NS",
+"TATAMOTORS.NS",
+"IRFC.NS",
+"YESBANK.NS",
+"PNB.NS",
+"ADANIPOWER.NS"
 
 ];
 
+let result = [];
+
+for(let stock of stocks){
+
+let data =
+await yahooFinance.quote(stock);
+
+result.push({
+
+name:data.shortName,
+
+symbol:stock,
+
+price:data.regularMarketPrice,
+
+change:data.regularMarketChangePercent
+
+});
+
+}
+
+res.json(result);
+
+}catch(err){
+
+console.log(err);
+
+res.json([]);
+
+}
+
+});
 let marketData = [];
 
 for(const stock of stocks){
