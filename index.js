@@ -142,7 +142,40 @@ flex-direction:column;
 justify-content:center;
 
 }
+.ai-box{
 
+background:linear-gradient(
+135deg,
+#111827,
+#1e293b
+);
+
+border:2px solid cyan;
+
+box-shadow:
+0 0 25px rgba(0,255,255,0.5);
+
+}
+
+.ai-box h2{
+
+color:#00ffff;
+
+font-size:28px;
+
+margin-bottom:15px;
+
+}
+
+.ai-box p{
+
+font-size:20px;
+
+margin:10px 0;
+
+font-weight:bold;
+
+}
 .card:hover{
 
 transform:translateY(-5px);
@@ -415,6 +448,35 @@ Open Chart
 <div class="card">
 <h2>BANKNIFTY</h2>
 <div class="price">56000</div>
+</div>
+<div class="card ai-box">
+
+<h2>🤖 AI SIGNAL</h2>
+
+<p id="aiSignal">
+
+RELIANCE → BUY ✅
+
+</p>
+
+<p>
+
+Confidence → 81%
+
+</p>
+
+<p>
+
+Trend → Bullish 📈
+
+</p>
+
+<p>
+
+News Sentiment → Positive 😎
+
+</p>
+
 </div>
 
 </div>
