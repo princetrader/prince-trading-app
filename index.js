@@ -380,6 +380,45 @@ font-weight:bold;
 font-size:18px;
 
 }
+.news-panel{
+
+background:#111827;
+
+padding:18px;
+
+border-radius:15px;
+
+margin-top:20px;
+
+margin-bottom:20px;
+
+box-shadow:0 0 15px rgba(0,255,255,0.3);
+
+overflow:hidden;
+
+}
+
+.news-title{
+
+color:cyan;
+
+font-size:24px;
+
+font-weight:bold;
+
+margin-bottom:10px;
+
+}
+
+.news-scroll{
+
+font-size:18px;
+
+color:white;
+
+font-weight:bold;
+
+}
 </style>
 
 </head>
@@ -449,7 +488,33 @@ Open Chart
 </button>
 
 </div>
+<div class="news-panel">
 
+<div class="news-title">
+
+📰 LIVE MARKET NEWS
+
+</div>
+
+<div class="news-scroll">
+
+<marquee behavior="scroll" direction="left">
+
+🔥 RELIANCE bullish after strong earnings |
+
+📈 TCS wins US deal |
+
+⚠️ HDFC faces selling pressure |
+
+🚀 SBIN breakout expected |
+
+💰 INFY positive momentum detected
+
+</marquee>
+
+</div>
+
+</div>
 <div class="cards">
 <div class="market-movers">
 
