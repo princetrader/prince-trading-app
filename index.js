@@ -106,20 +106,39 @@ color:cyan;
 }
 
 .cards{
-display:flex;
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(220px,1fr));
+
 gap:20px;
-flex-wrap:wrap;
+
 margin-top:20px;
+
 }
 
 .card{
-background:#1a1f3a;
+
+background:#111827;
+
 padding:20px;
-width:220px;
+
 border-radius:15px;
-box-shadow:0 0 15px cyan;
+
+box-shadow:0 0 15px rgba(0,255,255,0.5);
+
+transition:0.3s;
+
 }
 
+.card:hover{
+
+transform:translateY(-5px);
+
+box-shadow:0 0 25px cyan;
+
+}
 .price{
 font-size:25px;
 color:#59ff7e;
