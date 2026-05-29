@@ -268,6 +268,7 @@ $${bnb}
 Current Time:
 <span id="clock"></span>
 </div>
+<div id="chartContainer" style="display:none;">
 <h2 style="margin-top:30px;">📊 BTC Live Chart</h2>
 
 <div style="margin-top:30px;">
@@ -307,8 +308,11 @@ document.getElementById(
 "dashboard"
 ).style.display="block";
 
-alert("Login Success ✅");
+document.getElementById(
+"chartContainer"
+).style.display="block";
 
+alert("Login Success ✅");
 }else{
 
 alert(
