@@ -233,9 +233,7 @@ LOGIN
 <div class="cards">
 
 <div class="card">
-
 <h2>BTC/USDT</h2>
-
 <div class="price">
 $${btc}
 </div>
@@ -243,9 +241,7 @@ $${btc}
 </div>
 
 <div class="card">
-
 <h2>ETH/USDT</h2>
-
 <div class="price">
 $${eth}
 </div>
@@ -253,23 +249,33 @@ $${eth}
 </div>
 
 <div class="card">
-
 <h2>BNB/USDT</h2>
-
 <div class="price">
 $${bnb}
 </div>
 
 </div>
 
+<div class="card">
+<h2>🤖 AI SIGNAL</h2>
+<div class="price">
+🟢 BUY
+</div>
+
 </div>
 
 <div class="time">
-
 Current Time:
 <span id="clock"></span>
-
 </div>
+<h2 style="margin-top:30px;">📊 BTC Live Chart</h2>
+
+<iframe
+src="https://s.tradingview.com/widgetembed/?symbol=BINANCE:BTCUSDT"
+width="100%"
+height="500"
+frameborder="0">
+</iframe>
 
 <div id="marketCards"
 class="cards">
