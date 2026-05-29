@@ -5,7 +5,7 @@ const axios = require("axios");
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-app.get("/market", async (req, res) => {
+app.get("/", async (req, res) => {
 
 let btc = "Loading...";
 let eth = "Loading...";
