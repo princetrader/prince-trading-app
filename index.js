@@ -411,14 +411,27 @@ let result = [];
 
 for(const stock of stocks){
 
-const data =
-await yahooFinance.quote(stock);
+const response = await axios.get(
+https://query1.finance.yahoo.com/v8/finance/chart/${stock}
+);
 
+const data = response.data.chart.result[0].meta;
 result.push({
 
-name:data.shortName,
-price:data.regularMarketPrice,
-change:data.regularMarketChangePercent
+name: stock,
+
+price: data.regularMarketPrice,
+
+change:
+(
+(
+data.regularMarketPrice -
+data.chartPreviousClose
+)
+/
+data.chartPreviousClose
+* 100
+).toFixed(2)
 
 });
 
