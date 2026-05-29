@@ -188,6 +188,7 @@ color:orange;
 <a href="#">💹 Signals</a>
 <a href="#">💼 Portfolio</a>
 <a href="#">🤖 AI Signals</a>
+<a href="#" onclick="showScanner()">📈 NSE Scanner</a>
 <a href="#">⚙️ Settings</a>
 
 </div>
@@ -205,7 +206,31 @@ color:orange;
 </div>
 
 <div class="login-box" id="loginBox">
+<div id="scannerPage" style="display:none; padding:20px;">
 
+<h2>📈 NSE TOP 50 SCANNER</h2>
+
+<div class="cards">
+
+<div class="card">
+<h3>RELIANCE</h3>
+<p>Signal: BUY 🟢</p>
+<p>Entry: ₹1450</p>
+<p>Target: ₹1500</p>
+<p>SL: ₹1420</p>
+</div>
+
+<div class="card">
+<h3>TCS</h3>
+<p>Signal: BUY 🟢</p>
+<p>Entry: ₹3900</p>
+<p>Target: ₹4050</p>
+<p>SL: ₹3850</p>
+</div>
+
+</div>
+
+</div>
 <h2>Login</h2>
 
 <input
@@ -287,6 +312,13 @@ class="cards">
 
 <script>
 
+function showScanner(){
+
+document.getElementById("scannerPage").style.display="block";
+
+document.getElementById("loginBox").style.display="none";
+
+}
 function login(){
 
 const user =
