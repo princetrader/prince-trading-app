@@ -270,12 +270,22 @@ Current Time:
 </div>
 <h2 style="margin-top:30px;">📊 BTC Live Chart</h2>
 
+<div style="margin-top:30px;">
+
+<h2>📊 BTC Live Chart</h2>
+
 <iframe
-src="https://s.tradingview.com/widgetembed/?symbol=BINANCE:BTCUSDT"
-width="100%"
-height="500"
-frameborder="0">
+src="https://s.tradingview.com/widgetembed/?symbol=BINANCE:BTCUSDT&interval=15"
+style="
+width:100%;
+height:600px;
+border:none;
+border-radius:15px;
+background:#111827;
+">
 </iframe>
+
+</div>
 
 <div id="marketCards"
 class="cards">
