@@ -1,5 +1,4 @@
 const express = require("express");
-const yahooFinance = require("yahoo-finance2").default;
 const axios = require("axios");
 
 
