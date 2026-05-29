@@ -1,11 +1,11 @@
 const express = require("express");
 const axios = require("axios");
-const yahooFinance = require("yahoo-finance2").default;
+
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-app.get("/", async (req, res) => {
+app.get("/market", async (req, res) => {
 
 let btc = "Loading...";
 let eth = "Loading...";
