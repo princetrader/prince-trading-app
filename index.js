@@ -272,8 +272,6 @@ Current Time:
 
 <div style="margin-top:30px;">
 
-<h2>📊 BTC Live Chart</h2>
-
 
 </div>
 
