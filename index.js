@@ -274,16 +274,6 @@ Current Time:
 
 <h2>📊 BTC Live Chart</h2>
 
-<iframe
-src="https://s.tradingview.com/widgetembed/?symbol=BINANCE:BTCUSDT&interval=15"
-style="
-width:100%;
-height:600px;
-border:none;
-border-radius:15px;
-background:#111827;
-">
-</iframe>
 
 </div>
 
@@ -345,9 +335,28 @@ updateClock();
 
 </script>
 
+<div class="tradingview-widget-container">
+  <div id="tradingview_btc"></div>
+
+  <script src="https://s3.tradingview.com/tv.js"></script>
+
+  <script>
+  new TradingView.widget({
+      width: "100%",
+      height: 650,
+      symbol: "BINANCE:BTCUSDT",
+      interval: "15",
+      timezone: "Asia/Kolkata",
+      theme: "dark",
+      style: "1",
+      locale: "en",
+      container_id: "tradingview_btc"
+  });
+  </script>
+</div>
+
 </body>
 </html>
-
 `);
 
 });
