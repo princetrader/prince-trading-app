@@ -206,7 +206,7 @@ color:orange;
 </div>
 
 <div class="login-box" id="loginBox">
-<div id="scannerPage" style="display:none; padding:20px;">
+<div id="scannerPage" style="display:block; padding:20px;">
 
 <h2>📈 NSE TOP 50 SCANNER</h2>
 
@@ -313,12 +313,9 @@ class="cards">
 <script>
 
 function showScanner(){
-
-document.getElementById("scannerPage").style.display="block";
-
-document.getElementById("loginBox").style.display="none";
-
+    document.getElementById("scannerPage").style.display="block";
 }
+
 function login(){
 
 const user =
