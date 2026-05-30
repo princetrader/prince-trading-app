@@ -412,7 +412,7 @@ let result = [];
 for(const stock of stocks){
 
 const response = await axios.get(
-`https://query1.finance.yahoo.com/v8/finance/chart/${stock}
+"https://query1.finance.yahoo.com/v8/finance/chart/" + stock
 );
 
 const data = response.data.chart.result[0].meta;
@@ -422,17 +422,12 @@ name: stock,
 
 price: data.regularMarketPrice,
 
-change:
-(
-(
-data.regularMarketPrice -
-data.chartPreviousClose
-)
-/
-data.chartPreviousClose
-* 100
+change: (
+  (
+    (data.regularMarketPrice - data.chartPreviousClose) /
+    data.chartPreviousClose
+  ) * 100
 ).toFixed(2)
-
 });
 
 }
