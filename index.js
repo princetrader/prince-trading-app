@@ -337,7 +337,7 @@ async function loadScanner(){
 
  document.getElementById("scannerCards").innerHTML = html;
 } 
-}
+
 function login(){
 
 const user =
