@@ -401,10 +401,6 @@ try{
 
 const stocks = [
 "RELIANCE.NS",
-"TCS.NS",
-"INFY.NS",
-"HDFCBANK.NS",
-"ICICIBANK.NS",
 ];
 
 let result = [];
