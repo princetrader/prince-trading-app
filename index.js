@@ -313,7 +313,11 @@ class="cards">
 <script>
 
 function showScanner(){
+
     document.getElementById("scannerPage").style.display="block";
+
+    document.getElementById("loginBox").style.display="none";
+
 }
 
 function login(){
