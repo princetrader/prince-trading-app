@@ -209,8 +209,11 @@ color:orange;
 <div id="scannerPage" style="display:block; padding:20px;">
 
 <h2>📈 NSE TOP 50 SCANNER</h2>
-<div id="scannerCards"></div>
 
+<div id="scannerCards">
+<h3>TEST CARD</h3>
+<p>Scanner Working</p>
+</div>
 
 </div>
 
@@ -306,9 +309,13 @@ function showScanner(){
 }
 async function loadScanner(){
 
+    console.log("Market API Called");
+
     const response = await fetch("/market");
+    console.log(response);
 
     const data = await response.json();
+    console.log(data);
 
     let html = "";
 
@@ -328,7 +335,8 @@ async function loadScanner(){
 "</div>";
     });
 
-    document.getElementById("scannerCards").innerHTML = html;
+ document.getElementById("scannerCards").innerHTML = html;
+} 
 }
 function login(){
 
