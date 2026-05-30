@@ -209,24 +209,8 @@ color:orange;
 <div id="scannerPage" style="display:block; padding:20px;">
 
 <h2>📈 NSE TOP 50 SCANNER</h2>
+<div id="scannerCards"></div>
 
-<div class="cards">
-
-<div class="card">
-<h3>RELIANCE</h3>
-<p>Signal: BUY 🟢</p>
-<p>Entry: ₹1450</p>
-<p>Target: ₹1500</p>
-<p>SL: ₹1420</p>
-</div>
-
-<div class="card">
-<h3>TCS</h3>
-<p>Signal: BUY 🟢</p>
-<p>Entry: ₹3900</p>
-<p>Target: ₹4050</p>
-<p>SL: ₹3850</p>
-</div>
 
 </div>
 
@@ -317,9 +301,36 @@ function showScanner(){
     document.getElementById("scannerPage").style.display="block";
 
     document.getElementById("loginBox").style.display="none";
-
+    
+    loadScanner();
 }
+async function loadScanner(){
 
+    const response = await fetch("/market");
+
+    const data = await response.json();
+
+    let html = "";
+
+    data.forEach(stock => {
+
+        const signal =
+        parseFloat(stock.change) > 0
+        ? "BUY 🟢"
+        : "SELL 🔴";
+
+        html += `
+        <div class="card">
+            <h3>${stock.name}</h3>
+            <p>Price: ₹${stock.price}</p>
+            <p>Change: ${stock.change}%</p>
+            <p>Signal: ${signal}</p>
+        </div>
+        `;
+    });
+
+    document.getElementById("scannerCards").innerHTML = html;
+}
 function login(){
 
 const user =
