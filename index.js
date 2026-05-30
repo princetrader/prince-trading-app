@@ -319,14 +319,13 @@ async function loadScanner(){
         ? "BUY 🟢"
         : "SELL 🔴";
 
-        html += `
-        <div class="card">
-            <h3>${stock.name}</h3>
-            <p>Price: ₹${stock.price}</p>
-            <p>Change: ${stock.change}%</p>
-            <p>Signal: ${signal}</p>
-        </div>
-        `;
+      html +=
+"<div class='card'>" +
+"<h3>" + stock.name + "</h3>" +
+"<p>Price: ₹" + stock.price + "</p>" +
+"<p>Change: " + stock.change + "%</p>" +
+"<p>Signal: " + signal + "</p>" +
+"</div>";
     });
 
     document.getElementById("scannerCards").innerHTML = html;
