@@ -206,7 +206,7 @@ color:orange;
 </div>
 
 <div class="login-box" id="loginBox">
-<div id="scannerPage" style="display:block; padding:20px;">
+<div id="scannerPage" style="display:none; padding:20px;">
 
 <h2>📈 NSE TOP 50 SCANNER</h2>
 
@@ -362,7 +362,8 @@ document.getElementById(
 document.getElementById(
 "chartContainer"
 ).style.display="block";
-
+document.getElementById("scannerPage").style.display="none";
+document.getElementById("dashboard").style.display="block";
 alert("Login Success ✅");
 }else{
 
