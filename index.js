@@ -408,7 +408,12 @@ let result = [];
 for(const stock of stocks){
 
 const response = await axios.get(
-"https://query1.finance.yahoo.com/v8/finance/chart/" + stock
+  "https://query1.finance.yahoo.com/v8/finance/chart/" + stock,
+  {
+    headers: {
+      "User-Agent": "Mozilla/5.0"
+    }
+  }
 );
 
 const data = response.data.chart.result[0].meta;
