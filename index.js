@@ -343,7 +343,7 @@ async function loadScanner(){
 "<p>📈 Change: " + stock.change + "%</p>" +
 "<p>" + signal + "</p>" +
 "</div>";
-
+});
  document.getElementById("scannerCards").innerHTML = html;
 } 
 
