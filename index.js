@@ -215,9 +215,6 @@ color:orange;
 
 <div class="login-box main" id="loginBox">
 
-
-</div>
-
 <h2>Login</h2>
 
 <input
@@ -311,11 +308,14 @@ class="cards">
 
 function showScanner(){
 
-    document.getElementById("scannerPage").style.display="block";
+document.getElementById("scannerPage").style.display="block";
 
-    document.getElementById("loginBox").style.display="none";
-    
-    loadScanner();
+document.getElementById("loginBox").style.display="none";
+
+document.getElementById("dashboard").style.display="none";
+
+loadScanner();
+
 }
 async function loadScanner(){
 
