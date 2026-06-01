@@ -214,18 +214,10 @@ color:orange;
 </div>
 
 <div class="login-box main" id="loginBox">
-<div id="scannerPage" style="display:none; padding:20px;">
 
-<h2>📈 NSE TOP 50 SCANNER</h2>
-
-<div id="scannerCards">
-<h3>TEST CARD</h3>
-<p>Scanner Working</p>
-</div>
 
 </div>
 
-</div>
 <h2>Login</h2>
 
 <input
@@ -241,6 +233,16 @@ placeholder="Password">
 <button onclick="login()">
 LOGIN
 </button>
+
+</div>
+<div id="scannerPage" style="display:none; padding:20px;">
+
+<h2>📈 NSE TOP 50 SCANNER</h2>
+
+<div id="scannerCards">
+<h3>TEST CARD</h3>
+<p>Scanner Working</p>
+</div>
 
 </div>
 
