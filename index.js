@@ -314,6 +314,9 @@ document.getElementById("loginBox").style.display="none";
 
 document.getElementById("dashboard").style.display="none";
 
+document.getElementById("scannerCards").innerHTML =
+"<h2 style='color:white'>Scanner Working ✅</h2>";
+
 loadScanner();
 
 }
