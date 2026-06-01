@@ -171,8 +171,16 @@ color:#59ff7e;
 margin-top:20px;
 font-size:22px;
 color:orange;
+
 }
 
+#dashboard{
+    min-height:100vh;
+}
+
+.login-box{
+    margin-top:40px;
+}
 </style>
 
 </head>
@@ -205,7 +213,7 @@ color:orange;
 
 </div>
 
-<div class="login-box" id="loginBox">
+<div class="login-box main" id="loginBox">
 <div id="scannerPage" style="display:none; padding:20px;">
 
 <h2>📈 NSE TOP 50 SCANNER</h2>
@@ -236,7 +244,7 @@ LOGIN
 
 </div>
 
-<div id="dashboard" style="display:none;">
+<div id="dashboard" class="main" style="display:none;">
 
 <h1>
 🚀 LIVE CRYPTO MARKET
