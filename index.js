@@ -340,33 +340,16 @@ async function loadScanner(){
         ? "BUY 🟢"
         : "SELL 🔴";
 
-     html += `
-<div style="
-background:#162447;
-border:1px solid #00e5ff;
-border-radius:15px;
-padding:15px;
-margin:10px;
-width:250px;
-display:inline-block;
-box-shadow:0 0 10px #00e5ff55;
-">
+    html += ` 
+<div style="background:#162447;border:1px solid #00e5ff;border-radius:15px;padding:15px;margin:10px;width:250px;display:inline-block;box-shadow:0 0 10px #00e5ff55;">
 
-<h3 style="color:#00e5ff;">
-${stock.name}
-</h3>
+<h3 style="color:#00e5ff;">${stock.name}</h3>
 
-<p style="color:white;">
-💰 Price: ₹${stock.price}
-</p>
+<p style="color:white;">💰 Price: ₹${stock.price}</p>
 
-<p style="color:white;">
-📈 Change: ${stock.change}%
-</p>
+<p style="color:white;">📈 Change: ${stock.change}%</p>
 
-<p style="font-weight:bold;">
-${signal}
-</p>
+<p style="font-weight:bold;">${signal}</p>
 
 </div>
 `;
