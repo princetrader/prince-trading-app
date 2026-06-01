@@ -334,13 +334,13 @@ async function loadScanner(){
 
         const signal =
         parseFloat(stock.change) > 0
-        ? "BUY 🟢"
-        : "SELL 🔴";
+        ? "BUY "
+        : "SELL ";
 
  html += "<div class='card'>" +
 "<h3>" + stock.name + "</h3>" +
-"<p>💰 Price: ₹" + stock.price + "</p>" +
-"<p>📈 Change: " + stock.change + "%</p>" +
+"<p> Price: ₹" + stock.price + "</p>" +
+"<p> Change: " + stock.change + "%</p>" +
 "<p>" + signal + "</p>" +
 "</div>";
 });
@@ -373,12 +373,10 @@ document.getElementById(
 ).style.display="block";
 document.getElementById("scannerPage").style.display="none";
 document.getElementById("dashboard").style.display="block";
-alert("Login Success ✅");
-}else{
 
-alert(
-"Wrong Username / Password ❌"
-);
+alert("Login Success");
+}else{
+alert("Wrong Username / Password");
 
 }
 
