@@ -349,7 +349,23 @@ async function loadScanner(){
         parseFloat(stock.change) > 0
         ? "BUY "
         : "SELL ";
-        const aiScore = Math.floor(Math.random() * 40) + 60;
+      let aiScore = 50;
+
+if (parseFloat(stock.change) > 2) {
+    aiScore += 25;
+}
+
+if (parseFloat(stock.change) > 0) {
+    aiScore += 15;
+}
+
+if (stock.price > 1000) {
+    aiScore += 10;
+}
+
+if (aiScore > 100) {
+    aiScore = 100;
+}
         const entry = stock.price;
 
 const target = (parseFloat(stock.price) * 1.03).toFixed(2);
