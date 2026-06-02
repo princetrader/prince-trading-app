@@ -191,6 +191,15 @@ color:orange;
   display:inline-block;
   box-shadow:0 0 10px #00e5ff55;
 }
+.buy-card{
+border:2px solid #00ff66;
+box-shadow:0 0 15px #00ff66;
+}
+
+.sell-card{
+border:2px solid #ff4444;
+box-shadow:0 0 15px #ff4444;
+}
 </style>
 
 </head>
@@ -385,8 +394,8 @@ if (signal === "BUY ") {
     stopLoss = (price * 1.03).toFixed(2);
 
 }
-
-html += "<div class='card'>" +
+const cardClass = signal === "BUY " ? "card buy-card" : "card sell-card";
+html += "<div class='" + cardClass + "'>" +
 "<h3>" + stock.name + "</h3>" +
 "<p>💰 Price: ₹" + stock.price + "</p>" +
 "<p>📈 Change: " + stock.change + "%</p>" +
