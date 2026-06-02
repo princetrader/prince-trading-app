@@ -350,6 +350,11 @@ async function loadScanner(){
         ? "BUY "
         : "SELL ";
         const aiScore = Math.floor(Math.random() * 40) + 60;
+        const entry = stock.price;
+
+const target = (parseFloat(stock.price) * 1.03).toFixed(2);
+
+const stopLoss = (parseFloat(stock.price) * 0.98).toFixed(2);
 
 html += "<div class='card'>" +
 "<h3>" + stock.name + "</h3>" +
