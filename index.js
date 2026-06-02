@@ -181,6 +181,16 @@ color:orange;
 .login-box{
     margin-top:40px;
 }
+.card{
+  background:#162447;
+  border:1px solid #00e5ff;
+  border-radius:15px;
+  padding:15px;
+  margin:10px;
+  width:220px;
+  display:inline-block;
+  box-shadow:0 0 10px #00e5ff55;
+}
 </style>
 
 </head>
@@ -337,11 +347,11 @@ async function loadScanner(){
         ? "BUY "
         : "SELL ";
 
- html += "<div class='card'>" +
+html += "<div class='card'>" +
 "<h3>" + stock.name + "</h3>" +
-"<p> Price: ₹" + stock.price + "</p>" +
-"<p> Change: " + stock.change + "%</p>" +
-"<p>" + signal + "</p>" +
+"<p>💰 Price: ₹" + stock.price + "</p>" +
+"<p>📈 Change: " + stock.change + "%</p>" +
+"<p><b>" + signal + "</b></p>" +
 "</div>";
 });
  document.getElementById("scannerCards").innerHTML = html;
