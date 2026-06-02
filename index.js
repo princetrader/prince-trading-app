@@ -187,7 +187,7 @@ color:orange;
   border-radius:15px;
   padding:15px;
   margin:10px;
-  width:220px;
+  width:200px;
   display:inline-block;
   box-shadow:0 0 10px #00e5ff55;
 }
@@ -499,6 +499,16 @@ const stocks = [
   "ITC.NS",
   "BHARTIARTL.NS",
   "KOTAKBANK.NS"
+    "AXISBANK.NS",
+"ASIANPAINT.NS",
+"BAJFINANCE.NS",
+"HCLTECH.NS",
+"MARUTI.NS",
+"SUNPHARMA.NS",
+"TITAN.NS",
+"ULTRACEMCO.NS",
+"NESTLEIND.NS",
+"WIPRO.NS"
 ];
 
 let result = [];
