@@ -357,6 +357,9 @@ html += "<div class='card'>" +
 "<p>📈 Change: " + stock.change + "%</p>" +
 "<p><b>" + signal + "</b></p>" +
 "<p>🤖 AI Score: " + aiScore + "/100</p>" +
+"<p>🎯 Entry: ₹" + entry + "</p>" +
+"<p>🚀 Target: ₹" + target + "</p>" +
+"<p>🛑 SL: ₹" + stopLoss + "</p>" +
 "</div>";
 });
  document.getElementById("scannerCards").innerHTML = html;
