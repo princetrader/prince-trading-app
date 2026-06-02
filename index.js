@@ -366,11 +366,25 @@ if (stock.price > 1000) {
 if (aiScore > 100) {
     aiScore = 100;
 }
-        const entry = stock.price;
+       const price = parseFloat(stock.price);
 
-const target = (parseFloat(stock.price) * 1.03).toFixed(2);
+let entry = price;
+let target;
+let stopLoss;
 
-const stopLoss = (parseFloat(stock.price) * 0.98).toFixed(2);
+if (signal === "BUY ") {
+
+    target = (price * 1.05).toFixed(2);
+
+    stopLoss = (price * 0.97).toFixed(2);
+
+} else {
+
+    target = (price * 0.95).toFixed(2);
+
+    stopLoss = (price * 1.03).toFixed(2);
+
+}
 
 html += "<div class='card'>" +
 "<h3>" + stock.name + "</h3>" +
