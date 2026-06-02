@@ -327,7 +327,7 @@ document.getElementById("dashboard").style.display="none";
 
 loadScanner();
 if (!window.scannerInterval) {
-    window.scannerInterval = setInterval(loadScanner, 10000);
+    window.scannerInterval = setInterval(loadScanner, 5000);
 }
 
 }
