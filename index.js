@@ -498,7 +498,7 @@ const stocks = [
   "LT.NS",
   "ITC.NS",
   "BHARTIARTL.NS",
-  "KOTAKBANK.NS"
+  "KOTAKBANK.NS",
     "AXISBANK.NS",
 "ASIANPAINT.NS",
 "BAJFINANCE.NS",
