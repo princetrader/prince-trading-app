@@ -437,7 +437,16 @@ app.get("/market", async (req,res)=>{
 try{
 
 const stocks = [
-"RELIANCE.NS",
+  "RELIANCE.NS",
+  "TCS.NS",
+  "INFY.NS",
+  "HDFCBANK.NS",
+  "ICICIBANK.NS",
+  "SBIN.NS",
+  "LT.NS",
+  "ITC.NS",
+  "BHARTIARTL.NS",
+  "KOTAKBANK.NS"
 ];
 
 let result = [];
