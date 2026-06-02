@@ -499,7 +499,7 @@ const stocks = [
   "ITC.NS",
   "BHARTIARTL.NS",
   "KOTAKBANK.NS",
-    "AXISBANK.NS",
+ "AXISBANK.NS",
 "ASIANPAINT.NS",
 "BAJFINANCE.NS",
 "HCLTECH.NS",
@@ -509,6 +509,7 @@ const stocks = [
 "ULTRACEMCO.NS",
 "NESTLEIND.NS",
 "WIPRO.NS"
+"SUZLON.NS",
 ];
 
 let result = [];
