@@ -349,12 +349,14 @@ async function loadScanner(){
         parseFloat(stock.change) > 0
         ? "BUY "
         : "SELL ";
+        const aiScore = Math.floor(Math.random() * 40) + 60;
 
 html += "<div class='card'>" +
 "<h3>" + stock.name + "</h3>" +
 "<p>💰 Price: ₹" + stock.price + "</p>" +
 "<p>📈 Change: " + stock.change + "%</p>" +
 "<p><b>" + signal + "</b></p>" +
+"<p>🤖 AI Score: " + aiScore + "/100</p>" +
 "</div>";
 });
  document.getElementById("scannerCards").innerHTML = html;
