@@ -326,6 +326,9 @@ document.getElementById("loginBox").style.display="none";
 document.getElementById("dashboard").style.display="none";
 
 loadScanner();
+if (!window.scannerInterval) {
+    window.scannerInterval = setInterval(loadScanner, 10000);
+}
 
 }
 async function loadScanner(){
