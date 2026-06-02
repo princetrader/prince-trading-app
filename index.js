@@ -508,7 +508,7 @@ const stocks = [
 "TITAN.NS",
 "ULTRACEMCO.NS",
 "NESTLEIND.NS",
-"WIPRO.NS"
+"WIPRO.NS",
 "SUZLON.NS",
 ];
 
