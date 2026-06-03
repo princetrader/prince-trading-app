@@ -382,10 +382,11 @@ if (parseFloat(stock.change) < -1) {
 }
 if (aiScore > 100) {
     aiScore = 100;
-    const support = (price * 0.98).toFixed(2);
-const resistance = (price * 1.02).toFixed(2);
+    
 }
        const price = parseFloat(stock.price);
+       const support = (price * 0.98).toFixed(2);
+const resistance = (price * 1.02).toFixed(2);
 
 let entry = price;
 let target;
