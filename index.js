@@ -371,7 +371,15 @@ if (parseFloat(stock.change) > 0) {
 if (stock.price > 1000) {
     aiScore += 10;
 }
+let trend = "🟡 SIDEWAYS";
 
+if (parseFloat(stock.change) > 1) {
+    trend = "🟢 BULLISH";
+}
+
+if (parseFloat(stock.change) < -1) {
+    trend = "🔴 BEARISH";
+}
 if (aiScore > 100) {
     aiScore = 100;
 }
@@ -401,6 +409,7 @@ html += "<div class='" + cardClass + "'>" +
 "<p>📈 Change: " + stock.change + "%</p>" +
 "<p><b>" + signal + "</b></p>" +
 "<p>🤖 AI Score: " + aiScore + "/100</p>" +
+"<p>📈 Trend: " + trend + "</p>" +
 "<p>🎯 Entry: ₹" + entry + "</p>" +
 "<p>🚀 Target: ₹" + target + "</p>" +
 "<p>🛑 SL: ₹" + stopLoss + "</p>" +
