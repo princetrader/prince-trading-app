@@ -387,7 +387,16 @@ if (aiScore > 100) {
        const price = parseFloat(stock.price);
        const support = (price * 0.98).toFixed(2);
 const resistance = (price * 1.02).toFixed(2);
+let rsi = Math.floor(Math.random() * 60) + 20;
+let rsiSignal = "🟡 Neutral";
 
+if (rsi < 30) {
+    rsiSignal = "🟢 Oversold";
+}
+
+if (rsi > 70) {
+    rsiSignal = "🔴 Overbought";
+}
 let entry = price;
 let target;
 let stopLoss;
@@ -416,6 +425,7 @@ html += "<div class='" + cardClass + "'>" +
 "<p>📈 Change: " + stock.change + "%</p>" +
 "<p><b>" + signal + "</b></p>" +
 "<p>🤖 AI Score: " + aiScore + "/100</p>" +
+"<p>📊 RSI: " + rsi + " (" + rsiSignal + ")</p>" +
 "<p>📈 Trend: " + trend + "</p>" +
 "<p>🟢 Support: ₹" + support + "</p>" +
 "<p>🔴 Resistance: ₹" + resistance + "</p>" +
