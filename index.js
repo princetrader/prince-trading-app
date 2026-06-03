@@ -391,18 +391,22 @@ const resistance = (price * 1.02).toFixed(2);
 let entry = price;
 let target;
 let stopLoss;
-
+let riskReward;
 if (signal === "BUY ") {
 
     target = (price * 1.05).toFixed(2);
 
     stopLoss = (price * 0.97).toFixed(2);
+    
+    riskReward = "1 : 1.67";
 
 } else {
 
     target = (price * 0.95).toFixed(2);
 
     stopLoss = (price * 1.03).toFixed(2);
+    
+    riskReward = "1 : 1.67";
 
 }
 const cardClass = signal === "BUY " ? "card buy-card" : "card sell-card";
@@ -417,6 +421,7 @@ html += "<div class='" + cardClass + "'>" +
 "<p>🔴 Resistance: ₹" + resistance + "</p>" +
 "<p>🎯 Entry: ₹" + entry + "</p>" +
 "<p>🚀 Target: ₹" + target + "</p>" +
+"<p>⚖️ R:R = " + riskReward + "</p>" +
 "<p>🛑 SL: ₹" + stopLoss + "</p>" +
 "</div>";
 });
