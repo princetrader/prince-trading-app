@@ -397,6 +397,15 @@ if (rsi < 30) {
 if (rsi > 70) {
     rsiSignal = "🔴 Overbought";
 }
+    
+if (rsi < 30) {
+    aiScore += 10;
+}
+
+if (rsi > 70) {
+    aiScore -= 10;
+}
+
 let entry = price;
 let target;
 let stopLoss;
