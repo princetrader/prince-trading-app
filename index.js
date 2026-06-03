@@ -382,6 +382,8 @@ if (parseFloat(stock.change) < -1) {
 }
 if (aiScore > 100) {
     aiScore = 100;
+    const support = (price * 0.98).toFixed(2);
+const resistance = (price * 1.02).toFixed(2);
 }
        const price = parseFloat(stock.price);
 
@@ -410,6 +412,8 @@ html += "<div class='" + cardClass + "'>" +
 "<p><b>" + signal + "</b></p>" +
 "<p>🤖 AI Score: " + aiScore + "/100</p>" +
 "<p>📈 Trend: " + trend + "</p>" +
+"<p>🟢 Support: ₹" + support + "</p>" +
+"<p>🔴 Resistance: ₹" + resistance + "</p>" +
 "<p>🎯 Entry: ₹" + entry + "</p>" +
 "<p>🚀 Target: ₹" + target + "</p>" +
 "<p>🛑 SL: ₹" + stopLoss + "</p>" +
