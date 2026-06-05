@@ -401,11 +401,11 @@ if (stock.rsi > 70) {
 const resistance = (price * 1.02).toFixed(2);
 let rsiSignal = "🟡 Neutral";
 
-if (rsi < 30) {
+if (stock.rsi < 30) {
     rsiSignal = "🟢 Oversold";
 }
 
-if (rsi > 70) {
+if (stock.rsi > 70) {
     rsiSignal = "🔴 Overbought";
 }
     
