@@ -387,11 +387,11 @@ if (stock.macdSignal === "BULLISH") {
 if (stock.macdSignal === "BEARISH") {
  aiScore -= 15;
  }
- if (rsi < 30) {
+ if (stock.rsi < 30) {
    aiScore += 10;
 }
 
-if (rsi > 70) {
+if (stock.rsi > 70) {
    aiScore -= 10;
 }
 
