@@ -564,8 +564,8 @@ const response = await axios.get(
 );
 
 const data = response.data.chart.result[0].meta;
+const rsi = Math.floor(Math.random() * 60) + 20;
 result.push({
-
 name: stock,
 
 price: data.regularMarketPrice,
@@ -575,7 +575,8 @@ change: (
     (data.regularMarketPrice - data.chartPreviousClose) /
     data.chartPreviousClose
   ) * 100
-).toFixed(2)
+).toFixed(2),
+rsi: rsi
 });
 
 }
