@@ -385,16 +385,28 @@ if (stock.macdSignal === "BULLISH") {
 }
 
 if (stock.macdSignal === "BEARISH") {
-   aiScore -= 15;
+ aiScore -= 15;
+ }
+ if (rsi < 30) {
+   aiScore += 10;
 }
+
+if (rsi > 70) {
+   aiScore -= 10;
+}
+
 if (aiScore > 100) {
-    aiScore = 100;
-    
+   aiScore = 100;
 }
+
+if (aiScore < 0) {
+   aiScore = 0;
+}
+
+
        const price = parseFloat(stock.price);
        const support = (price * 0.98).toFixed(2);
 const resistance = (price * 1.02).toFixed(2);
-let rsi = Math.floor(Math.random() * 60) + 20;
 let rsiSignal = "🟡 Neutral";
 
 if (rsi < 30) {
