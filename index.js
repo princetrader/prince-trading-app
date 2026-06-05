@@ -405,11 +405,11 @@ if (rsi < 30) {
 if (rsi > 70) {
     aiScore -= 10;
 }
-if (macdSignal === "BULLISH") {
+if (stock.macdSignal === "BULLISH") {
    aiScore += 15;
 }
 
-if (macdSignal === "BEARISH") {
+if (stock.macdSignal === "BEARISH") {
    aiScore -= 15;
 }
 let entry = price;
