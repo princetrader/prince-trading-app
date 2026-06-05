@@ -380,6 +380,13 @@ if (parseFloat(stock.change) > 1) {
 if (parseFloat(stock.change) < -1) {
     trend = "🔴 BEARISH";
 }
+if (stock.macdSignal === "BULLISH") {
+   aiScore += 15;
+}
+
+if (stock.macdSignal === "BEARISH") {
+   aiScore -= 15;
+}
 if (aiScore > 100) {
     aiScore = 100;
     
