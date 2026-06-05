@@ -405,7 +405,13 @@ if (rsi < 30) {
 if (rsi > 70) {
     aiScore -= 10;
 }
+if (macdSignal === "BULLISH") {
+   aiScore += 15;
+}
 
+if (macdSignal === "BEARISH") {
+   aiScore -= 15;
+}
 let entry = price;
 let target;
 let stopLoss;
@@ -435,6 +441,7 @@ html += "<div class='" + cardClass + "'>" +
 "<p><b>" + signal + "</b></p>" +
 "<p>🤖 AI Score: " + aiScore + "/100</p>" +
 "<p>📊 RSI: " + rsi + " (" + rsiSignal + ")</p>" +
+"<p>📈 MACD: " + stock.macdSignal + " (" + stock.macd + ")</p>" +
 "<p>📈 Trend: " + trend + "</p>" +
 "<p>🟢 Support: ₹" + support + "</p>" +
 "<p>🔴 Resistance: ₹" + resistance + "</p>" +
@@ -586,18 +593,37 @@ const avgLoss = losses / 14;
 
 const rs = avgLoss === 0 ? 100 : avgGain / avgLoss;
 const rsi = Math.round(100 - (100 / (1 + rs)));
+    const ema12 =
+  closes.slice(-12).reduce((a, b) => a + b, 0) / 12;
+
+const ema26 =
+  closes.slice(-26).reduce((a, b) => a + b, 0) / 26;
+
+const macd = (ema12 - ema26).toFixed(2);
+
+let macdSignal = "NEUTRAL";
+
+if (macd > 0) {
+  macdSignal = "BULLISH";
+}
+
+if (macd < 0) {
+  macdSignal = "BEARISH";
+}
 result.push({
 name: stock,
 
 price: data.regularMarketPrice,
-
+    
 change: (
   (
     (data.regularMarketPrice - data.chartPreviousClose) /
     data.chartPreviousClose
   ) * 100
 ).toFixed(2),
-rsi: rsi
+rsi: rsi,
+macd: macd,
+macdSignal: macdSignal,
 });
 
 }
