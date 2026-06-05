@@ -555,7 +555,7 @@ let result = [];
 for(const stock of stocks){
 
 const response = await axios.get(
-  "https://query1.finance.yahoo.com/v8/finance/chart/" + stock,
+  "https://query1.finance.yahoo.com/v8/finance/chart/" + stock + "?range=1mo&interval=1d",
   {
     headers: {
       "User-Agent": "Mozilla/5.0"
@@ -563,8 +563,29 @@ const response = await axios.get(
   }
 );
 
-const data = response.data.chart.result[0].meta;
-const rsi = Math.floor(Math.random() * 60) + 20;
+const chart = response.data.chart.result[0];
+const data = chart.meta;
+
+const closes = chart.indicators.quote[0].close.filter(x => x);
+
+let gains = 0;
+let losses = 0;
+
+for (let i = closes.length - 14; i < closes.length; i++) {
+  const diff = closes[i] - closes[i - 1];
+
+  if (diff > 0) {
+    gains += diff;
+  } else {
+    losses += Math.abs(diff);
+  }
+}
+
+const avgGain = gains / 14;
+const avgLoss = losses / 14;
+
+const rs = avgLoss === 0 ? 100 : avgGain / avgLoss;
+const rsi = Math.round(100 - (100 / (1 + rs)));
 result.push({
 name: stock,
 
