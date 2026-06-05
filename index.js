@@ -409,11 +409,11 @@ if (stock.rsi > 70) {
     rsiSignal = "🔴 Overbought";
 }
     
-if (rsi < 30) {
+if (stock.rsi < 30) {
     aiScore += 10;
 }
 
-if (rsi > 70) {
+if (stock.rsi > 70) {
     aiScore -= 10;
 }
 if (stock.macdSignal === "BULLISH") {
@@ -458,7 +458,7 @@ html += "<div class='" + cardClass + "'>" +
 "<p>📈 Change: " + stock.change + "%</p>" +
 "<p><b>" + signal + "</b></p>" +
 "<p>🤖 AI Score: " + aiScore + "/100</p>" +
-"<p>📊 RSI: " + rsi + " (" + rsiSignal + ")</p>" +
+"<p>📊 RSI: " + stock.rsi + " (" + rsiSignal + ")</p>" +
 "<p>📈 MACD: " + stock.macdSignal + " (" + stock.macd + ")</p>" +
 "<p>📈 Trend: " + trend + "</p>" +
 "<p>🟢 Support: ₹" + support + "</p>" +
