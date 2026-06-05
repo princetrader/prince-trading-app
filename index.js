@@ -430,6 +430,7 @@ if (stock.macdSignal === "BEARISH") {
 if (aiScore < 0) {
     aiScore = 0;
 }
+console.log("FINAL AI SCORE =", aiScore);
 let entry = price;
 let target;
 let stopLoss;
