@@ -358,7 +358,9 @@ async function loadScanner(){
         parseFloat(stock.change) > 0
         ? "BUY "
         : "SELL ";
+        
       let aiScore = 50;
+      const volumeScore = stock.volumeScore || 0;
 
 if (parseFloat(stock.change) > 2) {
     aiScore += 25;
