@@ -387,6 +387,8 @@ if (stock.macdSignal === "BULLISH") {
 if (stock.macdSignal === "BEARISH") {
  aiScore -= 15;
  }
+ aiScore += volumeScore;
+ 
  if (stock.rsi < 30) {
    aiScore += 10;
 }
@@ -593,6 +595,20 @@ const chart = response.data.chart.result[0];
 const data = chart.meta;
 
 const closes = chart.indicators.quote[0].close.filter(x => x);
+const volumes = chart.indicators.quote[0].volume.filter(x => x);
+const currentVolume = volumes[volumes.length - 1];
+    
+const avgVolume =
+  volumes.reduce((a, b) => a + b, 0) / volumes.length;
+    
+let volumeScore = 0;
+    
+if (currentVolume > avgVolume * 2) {
+   volumeScore = 15;
+}
+else if (currentVolume > avgVolume * 1.5) {
+   volumeScore = 10;
+}
 
 let gains = 0;
 let losses = 0;
@@ -640,9 +656,15 @@ change: (
     data.chartPreviousClose
   ) * 100
 ).toFixed(2),
+    
 rsi: rsi,
 macd: macd,
 macdSignal: macdSignal,
+
+volume: currentVolume,
+avgVolume: Math.round(avgVolume),
+volumeScore: volumeScore,
+    
 });
 
 }
