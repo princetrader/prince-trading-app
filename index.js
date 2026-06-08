@@ -666,7 +666,7 @@ macdSignal: macdSignal,
 volume: currentVolume,
 avgVolume: Math.round(avgVolume),
 volumeScore: volumeScore,
-aiScore: aiScore,
+aiScore: Math.min(100, 50 + volumeScore),
 });
 
 }
