@@ -354,10 +354,7 @@ async function loadScanner(){
 
     data.forEach(stock => {
 
-        const signal =
-        parseFloat(stock.change) > 0
-        ? "BUY "
-        : "SELL ";
+
         
       let aiScore = 50;
       const volumeScore = stock.volumeScore || 0;
@@ -435,11 +432,18 @@ if (aiScore < 0) {
     aiScore = 0;
 }
 console.log("FINAL AI SCORE =", aiScore);
+let signal = "HOLD";
+
+if (aiScore >= 80) {
+    signal = "BUY";
+} else if (aiScore < 60) {
+    signal = "SELL";
+}
 let entry = price;
 let target;
 let stopLoss;
 let riskReward;
-if (signal === "BUY ") {
+if (signal === "BUY") {
 
     target = (price * 1.05).toFixed(2);
 
