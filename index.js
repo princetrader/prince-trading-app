@@ -490,14 +490,11 @@ html += "<div class='" + cardClass + "'>" +
 "<p>🚀 Target: ₹" + target + "</p>" +
 "<p>⚖️ R:R = " + riskReward + "</p>" +
 "<p>🛑 SL: ₹" + stopLoss + "</p>" +
-"<button onclick=\"loadChart('" + stock.name + "')\">📈 Live Chart</button>" +
-"</div>";
+html += '<button onclick="loadChart(\'' + stock.name + '\')">📈 Live Chart</button>';
+html += "</div>";
 });
  document.getElementById("scannerCards").innerHTML = html;
 } 
-document.getElementById("scannerCards").innerHTML = html;
-}
-
 function loadChart(symbol) {
 
 document.getElementById("chartContainer").style.display = "block";
