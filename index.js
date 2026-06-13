@@ -499,39 +499,24 @@ html += "<div class='" + cardClass + "'>" +
  document.getElementById("scannerCards").innerHTML = html;
 } 
 
-function login(){
+function login() {
 
-const user =
-document.getElementById("user").value;
-
-const pass =
-document.getElementById("pass").value;
+const user = document.getElementById("user").value;
+const pass = document.getElementById("pass").value;
 
 if(
 user === "admin" &&
 pass === "1234"
-){
-
-document.getElementById(
-"loginBox"
-).style.display="none";
-
-document.getElementById(
-"dashboard"
-).style.display="block";
-
-document.getElementById(
-"chartContainer"
-).style.display="block";
-document.getElementById("scannerPage").style.display="none";
+) {
+document.getElementById("loginBox").style.display="none";
 document.getElementById("dashboard").style.display="block";
+document.getElementById("chartContainer").style.display="block";
+document.getElementById("scannerPage").style.display="none";
 
 alert("Login Success");
-}else{
+} else {
 alert("Wrong Username / Password");
-
 }
-
 }
 
 function updateClock(){
