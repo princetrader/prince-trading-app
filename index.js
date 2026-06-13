@@ -675,6 +675,8 @@ aiscore: aiscore,
 
 }
 
+console.log("RESULT LENGTH =", result.length);
+console.log(result);
 res.json(result);
 
 }catch(err){
