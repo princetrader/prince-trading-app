@@ -264,6 +264,9 @@ LOGIN
 </div>
 
 <div id="dashboard" class="main" style="display:none;">
+<div id="chartContainer" style="display:none;">
+<div id="tradingview_chart" style="height:500px;width:100%;"></div>
+</div>
 
 <h1>
 🚀 LIVE CRYPTO MARKET
