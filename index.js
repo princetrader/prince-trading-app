@@ -356,8 +356,22 @@ async function loadScanner(){
 
 
         
-      let aiScore = 50;
-      const volumeScore = stock.volumeScore || 0;
+     let aiScore = 50;
+
+if (parseFloat(stock.change) > 2) aiScore += 20;
+if (parseFloat(stock.change) > 0) aiScore += 10;
+
+if (stock.macdSignal === "BULLISH") aiScore += 15;
+if (stock.macdSignal === "BEARISH") aiScore -= 15;
+
+if (stock.rsi < 30) aiScore += 10;
+if (stock.rsi > 70) aiScore -= 10;
+
+aiScore += (stock.volumeScore || 0);
+
+if (aiScore > 100) aiScore = 100;
+if (aiScore < 0) aiScore = 0;
+    
 
 if (parseFloat(stock.change) > 2) {
     aiScore += 25;
