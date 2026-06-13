@@ -340,6 +340,7 @@ if (!window.scannerInterval) {
 }
 
 }
+
 async function loadScanner(){
 
     console.log("Market API Called");
