@@ -548,7 +548,7 @@ updateClock();
   });
   </script>
 </div>
-
+<script src="https://s3.tradingview.com/tv.js"></script>
 </body>
 </html>
 `);
