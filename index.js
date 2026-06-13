@@ -434,11 +434,21 @@ if (aiScore < 0) {
 console.log("FINAL AI SCORE =", aiScore);
 let signal = "HOLD";
 
-if (aiScore >= 80) {
-    signal = "BUY";
-} else if (aiScore < 60) {
-    signal = "SELL";
+if (
+  aiScore >= 80 &&
+  parseFloat(stock.change) > 0 &&
+  stock.macdSignal === "BULLISH"
+) {
+  signal = "BUY";
 }
+else if (
+  aiScore < 60 ||
+  parseFloat(stock.change) < -2 ||
+  stock.macdSignal === "BEARISH"
+) {
+  signal = "SELL";
+}
+
 let entry = price;
 let target;
 let stopLoss;
