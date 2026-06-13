@@ -490,10 +490,32 @@ html += "<div class='" + cardClass + "'>" +
 "<p>🚀 Target: ₹" + target + "</p>" +
 "<p>⚖️ R:R = " + riskReward + "</p>" +
 "<p>🛑 SL: ₹" + stopLoss + "</p>" +
+"<button onclick=\"loadChart('" + stock.name + "')\">📈 Live Chart</button>" +
 "</div>";
 });
  document.getElementById("scannerCards").innerHTML = html;
 } 
+document.getElementById("scannerCards").innerHTML = html;
+}
+
+function loadChart(symbol) {
+
+document.getElementById("chartContainer").style.display = "block";
+document.getElementById("tradingview_chart").innerHTML = "";
+
+  new TradingView.widget({
+    container_id: "tradingview_chart",
+    width: "100%",
+    height: 500,
+    symbol: "NSE:" + symbol.replace(".NS", ""),
+    interval: "15",
+    timezone: "Asia/Kolkata",
+    theme: "dark",
+    style: "1",
+    locale: "en",
+    allow_symbol_change: true
+  });
+}
 
 function login() {
 
@@ -506,7 +528,10 @@ pass === "1234"
 ) {
 document.getElementById("loginBox").style.display="none";
 document.getElementById("dashboard").style.display="block";
-document.getElementById("chartContainer").style.display="block";
+document.getElementById("chartContainer").style.display = "block";
+document.getElementById("dashboard").scrollIntoView({
+  behavior: "smooth"
+});
 document.getElementById("scannerPage").style.display="none";
 
 alert("Login Success");
