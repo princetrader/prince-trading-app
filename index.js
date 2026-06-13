@@ -373,7 +373,6 @@ aiScore += (stock.volumeScore || 0);
 if (aiScore > 100) aiScore = 100;
 if (aiScore < 0) aiScore = 0;
     
-}
 
 if (stock.price > 1000) {
     aiScore += 10;
@@ -387,13 +386,7 @@ if (parseFloat(stock.change) > 1) {
 if (parseFloat(stock.change) < -1) {
     trend = "🔴 BEARISH";
 }
-if (stock.macdSignal === "BULLISH") {
-   aiScore += 15;
-}
-
-if (stock.macdSignal === "BEARISH") {
- aiScore -= 15;
- }
+ const volumeScore = stock.volumeScore || 0;
  aiScore += volumeScore;
  
  if (stock.rsi < 30) {
