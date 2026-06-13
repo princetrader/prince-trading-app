@@ -356,7 +356,7 @@ async function loadScanner(){
 
 
         
-     let aiScore = 50;
+let aiScore = 50;
 
 if (parseFloat(stock.change) > 2) aiScore += 20;
 if (parseFloat(stock.change) > 0) aiScore += 10;
@@ -372,13 +372,6 @@ aiScore += (stock.volumeScore || 0);
 if (aiScore > 100) aiScore = 100;
 if (aiScore < 0) aiScore = 0;
     
-
-if (parseFloat(stock.change) > 2) {
-    aiScore += 25;
-}
-
-if (parseFloat(stock.change) > 0) {
-    aiScore += 15;
 }
 
 if (stock.price > 1000) {
