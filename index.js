@@ -401,9 +401,9 @@ if (stock.rsi > 70) {
 }
 
 
-       const price = parseFloat(stock.price);
-       const support = (price * 0.98).toFixed(2);
-const resistance = (price * 1.02).toFixed(2);
+const price = parseFloat(stock.price);
+const support = (price * 0.98).toFixed(2);
+const resistance = (price * 1.02).toFixed(2)
 let rsiSignal = "🟡 Neutral";
 
 if (stock.rsi < 30) {
