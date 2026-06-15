@@ -474,24 +474,26 @@ if (signal === "BUY") {
     riskReward = "1 : 1.67";
 
 }
-const cardClass = signal === "BUY " ? "card buy-card" : "card sell-card";
-html += "<div class='" + cardClass + "'>" +
-"<h3>" + stock.name + "</h3>" +
-"<p>💰 Price: ₹" + stock.price + "</p>" +
-"<p>📈 Change: " + stock.change + "%</p>" +
-"<p><b>" + signal + "</b></p>" +
-"<p>🤖 AI Score: " + aiScore + "/100</p>" +
-"<p>📊 RSI: " + stock.rsi + " (" + rsiSignal + ")</p>" +
-"<p>📈 MACD: " + stock.macdSignal + " (" + stock.macd + ")</p>" +
-"<p>📈 Trend: " + trend + "</p>" +
-"<p>🟢 Support: ₹" + support + "</p>" +
-"<p>🔴 Resistance: ₹" + resistance + "</p>" +
-"<p>🎯 Entry: ₹" + entry + "</p>" +
-"<p>🚀 Target: ₹" + target + "</p>" +
-"<p>⚖️ R:R = " + riskReward + "</p>" +
-"<p>🔴 SL: ₹" + stopLoss + "</p>" +
-html += "<button onclick=\"loadChart('" + stock.name + "')\">📈 Live Chart</button>";
-html += "</div>";
+const cardClass = signal === "BUY" ? "card buy-card" : "card sell-card";
+
+html += `
+<div class="${cardClass}">
+<h3>${stock.name}</h3>
+<p>💰 Price: ₹${stock.price}</p>
+<p>📈 Change: ${stock.change}%</p>
+<p><b>${signal}</b></p>
+<p>😈 AI Score: ${aiScore}/100</p>
+<p>📊 RSI: ${stock.rsi} (${rsiSignal})</p>
+<p>📈 MACD: ${stock.macdSignal} (${stock.macd})</p>
+<p>📈 Trend: ${trend}</p>
+<p>🟢 Support: ₹${support}</p>
+<p>🔴 Resistance: ₹${resistance}</p>
+<p>🎯 Entry: ₹${entry}</p>
+<p>🚀 Target: ₹${target}</p>
+<p>⚖️ R:R = ${riskReward}</p>
+<p>🔴 SL: ₹${stopLoss}</p>
+<button onclick="loadChart('${stock.name}')">📈 Live Chart</button>
+</div>`;
 document.getElementById("scannerCards").innerHTML = html;
 });
 } 
