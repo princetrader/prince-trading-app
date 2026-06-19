@@ -310,7 +310,6 @@ $${bnb}
 Current Time:
 <span id="clock"></span>
 </div>
-<div id="chartContainer" style="display:none;">
 <h2 style="margin-top:30px;">📊 BTC Live Chart</h2>
 
 <div style="margin-top:30px;">
@@ -438,25 +437,31 @@ if (aiScore < 0) {
 console.log("FINAL AI SCORE =", aiScore);
 let signal = "HOLD";
 
-let entry = price;
-let target;
-let stopLoss;
-let riskReward;
+if (aiScore >= 75) {
+  signal = "BUY";
+} else if (aiScore <= 40) {
+  signal = "SELL";
+}
+
+let target = price;
+let stopLoss = price;
+let riskReward = "-";
 
 if (signal === "BUY") {
-target = (price * 1.05).toFixed(2);
-stopLoss = (price * 0.97).toFixed(2);
-riskReward = "1 : 1.67";
-} else {
- target = (price * 0.95).toFixed(2);
- stopLoss = (price * 1.03).toFixed(2);
- riskReward = "1 : 1.67";
+  target = (price * 1.05).toFixed(2);
+  stopLoss = (price * 0.97).toFixed(2);
+  riskReward = "1 : 1.67";
+}
+else if (signal === "SELL") {
+  target = (price * 0.95).toFixed(2);
+  stopLoss = (price * 1.03).toFixed(2);
+  riskReward = "1 : 1.67";
 }
 const cardClass = signal === "BUY" ? "card buy-card" : "card sell-card";
 
 html +=
 '<div class="' + cardClass + '">' +
-'<h3>' + stock.name + '</h3>' +
+'<h3>' + stock.name.replace(".NS", "") + '</h3>'
 '<p>💰 Price: ₹' + stock.price + '</p>' +
 '<p>📈 Change: ' + stock.change + '%</p>' +
 '<p><b>' + signal + '</b></p>' +
