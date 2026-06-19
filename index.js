@@ -470,7 +470,7 @@ html +=
 '<p>🚀 Target: ₹' + target + '</p>' +
 '<p>⚖️ R:R = ' + riskReward + '</p>' +
 '<p>🔴 SL: ₹' + stopLoss + '</p>' +
-'<button onclick="loadChart(\'' + stock.name + '\')">📈 Live Chart</button>' +
+"<button onclick=\"loadChart('" + stock.name + "')\">Live Chart</button>" +
 '</div>';
 });
 document.getElementById("scannerCards").innerHTML = html;
