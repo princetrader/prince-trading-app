@@ -1,12 +1,31 @@
 const express = require("express");
 const axios = require("axios");
-
+const yahooFinance = require("yahoo-finance2").default;
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-app.get("/", async (req, res) => {
+app.use(express.static("public"));
+app.use(express.json());
 
+async function getQuote(symbol) {
+  try {
+    const data = await yahooFinance.quote(symbol);
+
+    return {
+      name: symbol,
+      price: data.regularMarketPrice,
+      change: data.regularMarketChangePercent || 0
+    };
+
+  } catch (err) {
+    console.log(symbol, err.message);
+    return null;
+  }
+}
+
+app.get("/", async (req, res) => {
+    
 let btc = "Loading...";
 let eth = "Loading...";
 let bnb = "Loading...";
