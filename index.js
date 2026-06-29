@@ -1,6 +1,6 @@
 const express = require("express");
 const axios = require("axios");
-const yahooFinance = require("yahoo-finance2");
+
 
 const app = express();
 const PORT = process.env.PORT || 3000;
